@@ -69,6 +69,24 @@ sudo /usr/sbin/create-munge-key
 
 The generated key will be located at `/etc/munge/munge.key`. Copy this key to the appropriate location specified by the `slurm_munge_key_src` variable in your playbook.
 
+How to Install the Role
+-----------------------
+
+To install this role using a requirements file, add the following entry to your `requirements.yml`:
+
+```yaml
+- src: https://github.com/usegalaxy-no/ansible-role-slurm.git
+  scm: git
+  version: main
+  name: slurm
+```
+
+Then, run the following command to install the role:
+
+```bash
+ansible-galaxy install -r requirements.yml
+```
+
 How to Run
 ----------
 
