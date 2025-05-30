@@ -1,0 +1,10 @@
+---
+# tasks file for slurm
+
+- name: Include Slurm controller tasks
+  include_tasks: slurm-controller-install.yaml
+  when: "'slurm_controller' in group_names"
+
+- name: Include Slurm exec node tasks
+  include_tasks: slurm-exec-install.yaml
+  when: "'slurm_exec' in group_names"

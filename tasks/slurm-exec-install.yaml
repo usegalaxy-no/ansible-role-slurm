@@ -1,0 +1,68 @@
+---
+- name: Create slurm group
+  group:
+    name: "{{ slurm_group }}"
+    gid: "{{ slurm_gid }}"
+
+- name: Create slurm user
+  user:
+    name: "{{ slurm_user }}"
+    uid: "{{ slurm_uid }}"
+    group: "{{ slurm_group }}"
+    shell: "{{ slurm_shell }}"
+    create_home: "{{ slurm_create_home }}"
+
+- name: Install EPEL repository
+  dnf:
+    name: epel-release
+    state: present
+    update_cache: yes
+
+- name: Install required packages
+  dnf:
+    name:
+      - slurm
+      - slurm-slurmd
+      - munge
+      - munge-libs
+    state: present
+    update_cache: yes
+
+- name: Upload the Munge key
+  copy:
+    src: "{{ slurm_munge_key_src }}"
+    dest: "{{ slurm_munge_key_dest }}"
+    owner: "{{ slurm_munge_key_owner }}"
+    group: "{{ slurm_munge_key_group }}"
+    mode: "{{ slurm_munge_key_mode }}"
+
+- name: Enable and start the Munge service
+  systemd:
+    name: munge
+    state: started
+    enabled: true
+
+- name: Configure slurm.conf
+  template:
+    src: "{{ slurm_conf_template }}"
+    dest: "{{ slurm_conf_dest }}"
+    owner: "{{ slurm_conf_owner }}"
+    group: "{{ slurm_conf_group }}"
+    mode: "{{ slurm_conf_mode }}"
+
+- name: Create necessary directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ slurm_user }}"
+    group: "{{ slurm_group }}"
+    mode: '0755'
+  loop: "{{ slurm_directories }}"
+
+- name: Enable and start Slurm services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: true
+  loop:
+    - slurmd

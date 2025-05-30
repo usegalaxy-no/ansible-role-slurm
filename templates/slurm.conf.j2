@@ -1,0 +1,20 @@
+ClusterName={{ slurm_cluster_name }}
+ControlMachine={{ slurm_control_machine }}
+SlurmUser={{ slurm_user }}
+SlurmdUser={{ slurm_slurmd_user }}
+AuthType=auth/munge
+StateSaveLocation={{ slurm_state_save_location }}
+SlurmdSpoolDir={{ slurm_slurmd_spool_dir }}
+SlurmctldLogFile={{ slurm_ctld_log_file }}
+SlurmdLogFile={{ slurm_d_log_file }}
+SlurmctldPidFile={{ slurm_ctld_pid_file }}
+SlurmdPidFile={{ slurm_d_pid_file }}
+ProctrackType=proctrack/pgid
+ReturnToService=2
+SchedulerType=sched/backfill
+SlurmctldTimeout={{ slurm_ctld_timeout }}
+SlurmdTimeout={{ slurm_d_timeout }}
+
+NodeName={{ slurm_node_name }} Sockets={{ slurm_sockets }} CoresPerSocket={{ slurm_cores_per_socket }} ThreadsPerCore={{ slurm_threads_per_core }} RealMemory={{ slurm_real_memory }} State=UNKNOWN
+
+PartitionName={{ slurm_partition_name }} Nodes={{ slurm_partition_nodes }} Default=YES MaxTime={{ slurm_partition_max_time }} State=UP
