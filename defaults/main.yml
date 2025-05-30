@@ -39,3 +39,4 @@ slurm_cgroup_conf_owner: slurm
 slurm_cgroup_conf_group: slurm
 slurm_cgroup_conf_mode: '0644'
 slurm_max_node_count: 5
+slurm_playbook_type: exec  # Options: 'controller' or 'exec'

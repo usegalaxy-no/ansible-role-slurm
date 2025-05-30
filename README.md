@@ -51,6 +51,7 @@ Role Variables
 | `slurm_cgroup_conf_group`     | `slurm`                                 | Group of the cgroup configuration file        |
 | `slurm_cgroup_conf_mode`      | `0644`                                  | Permissions for the cgroup configuration file |
 | `slurm_max_node_count`        | `5`                                     | Maximum number of nodes in the Slurm cluster  |
+| `slurm_playbook_type`         | `exec`                                  | Determines which playbook to run (`controller` or `exec`) |
 
 Dependencies
 ------------
@@ -89,29 +90,23 @@ ansible-galaxy install -r requirements.yml
 How to Run
 ----------
 
-To run this role, ensure the inventory file specifies the groups `slurm_controller` and/or `slurm_exec`.
+To run this role, set the `slurm_playbook_type` variable to either `controller` or `exec` depending on the type of node you are configuring.
 
 ### Example Command
 
 ```bash
-ansible-playbook -i inventory_file playbook.yml
+ansible-playbook -i inventory_file playbook.yml -e slurm_playbook_type=controller
 ```
-
-### Group-Specific Instructions
-
-- **Slurm Controllers**: Ensure the host is in the `slurm_controller` group in your inventory file. This will execute tasks defined in `slurm-controller-install.yaml`.
-- **Slurm Exec Nodes**: Ensure the host is in the `slurm_exec` group in your inventory file. This will execute tasks defined in `slurm-exec-install.yaml`.
-
-Make sure the inventory file and variables are properly configured before running the playbook.
 
 Example Playbook
 ----------------
 
 ```yaml
-- hosts: slurm_controller
+- hosts: all
   become: true
   vars:
     slurm_munge_key_src: files/slurm/munge.key
+    slurm_playbook_type: exec
   roles:
     - slurm
 ```
