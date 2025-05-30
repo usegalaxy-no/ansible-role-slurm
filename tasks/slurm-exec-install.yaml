@@ -67,6 +67,16 @@
     mode: '0755'
   loop: "{{ slurm_directories }}"
 
+- name: Configure slurmctld ExecStart
+  lineinfile:
+    path: /usr/lib/systemd/system/slurmctld.service
+    regexp: '^ExecStart='
+    line: 'ExecStart=/usr/sbin/slurmctld -D -s $SLURMCTLD_OPTIONS -Z'
+    state: present
+
+- name: Reload systemd daemon
+  command: systemctl daemon-reload
+
 - name: Enable and start Slurm services
   systemd:
     name: "{{ item }}"

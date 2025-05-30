@@ -15,7 +15,8 @@ SchedulerType=sched/backfill
 SlurmctldTimeout={{ slurm_ctld_timeout }}
 SlurmdTimeout={{ slurm_d_timeout }}
 TaskPlugin=task/cgroup
+TreeWidth=65533
+SelectType=select/cons_tres
+MaxNodeCount={{ slurm_max_node_count }}
 
-NodeName={{ slurm_node_name }} Sockets={{ slurm_sockets }} CoresPerSocket={{ slurm_cores_per_socket }} ThreadsPerCore={{ slurm_threads_per_core }} RealMemory={{ slurm_real_memory }} State=UNKNOWN
-
-PartitionName={{ slurm_partition_name }} Nodes={{ slurm_partition_nodes }} Default=YES MaxTime={{ slurm_partition_max_time }} State=UP
+PartitionName={{ slurm_partition_name }} Nodes=ALL Default=YES MaxTime={{ slurm_partition_max_time }} State=UP

@@ -31,16 +31,11 @@ slurm_ctld_pid_file: /run/slurmctld.pid
 slurm_d_pid_file: /run/slurmd.pid
 slurm_ctld_timeout: 120
 slurm_d_timeout: 120
-slurm_node_name: compute[001-010]
-slurm_sockets: 1
-slurm_cores_per_socket: 8
-slurm_threads_per_core: 2
-slurm_real_memory: 64000
 slurm_partition_name: dev-cluster
-slurm_partition_nodes: compute[001-010]
 slurm_partition_max_time: 2-00:00:00
 slurm_cgroup_conf_template: "templates/cgroup.conf.j2"
 slurm_cgroup_conf_dest: "/etc/slurm/cgroup.conf"
 slurm_cgroup_conf_owner: slurm
 slurm_cgroup_conf_group: slurm
 slurm_cgroup_conf_mode: '0644'
+slurm_max_node_count: 5
