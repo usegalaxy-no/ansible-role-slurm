@@ -39,3 +39,8 @@ slurm_real_memory: 64000
 slurm_partition_name: dev-cluster
 slurm_partition_nodes: compute[001-010]
 slurm_partition_max_time: 2-00:00:00
+slurm_cgroup_conf_template: "templates/cgroup.conf.j2"
+slurm_cgroup_conf_dest: "/etc/slurm/cgroup.conf"
+slurm_cgroup_conf_owner: slurm
+slurm_cgroup_conf_group: slurm
+slurm_cgroup_conf_mode: '0644'

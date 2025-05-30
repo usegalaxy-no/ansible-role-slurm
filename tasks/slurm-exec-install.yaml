@@ -50,6 +50,14 @@
     group: "{{ slurm_conf_group }}"
     mode: "{{ slurm_conf_mode }}"
 
+- name: Configure cgroup.conf
+  template:
+    src: "{{ slurm_cgroup_conf_template }}"
+    dest: "{{ slurm_cgroup_conf_dest }}"
+    owner: "{{ slurm_cgroup_conf_owner }}"
+    group: "{{ slurm_cgroup_conf_group }}"
+    mode: "{{ slurm_cgroup_conf_mode }}"
+
 - name: Create necessary directories
   file:
     path: "{{ item }}"

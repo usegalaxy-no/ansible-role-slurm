@@ -52,6 +52,11 @@ Role Variables
 | `slurm_partition_name`        | `dev-cluster`                           | Name of the Slurm partition                    |
 | `slurm_partition_nodes`       | `compute[001-010]`                      | Nodes in the partition                         |
 | `slurm_partition_max_time`    | `2-00:00:00`                            | Maximum runtime for jobs in the partition      |
+| `slurm_cgroup_conf_template`  | `templates/cgroup.conf.j2`        | Path to the cgroup configuration template     |
+| `slurm_cgroup_conf_dest`      | `/etc/slurm/cgroup.conf`                | Destination for the cgroup configuration file |
+| `slurm_cgroup_conf_owner`     | `slurm`                                 | Owner of the cgroup configuration file        |
+| `slurm_cgroup_conf_group`     | `slurm`                                 | Group of the cgroup configuration file        |
+| `slurm_cgroup_conf_mode`      | `0644`                                  | Permissions for the cgroup configuration file |
 
 Dependencies
 ------------
