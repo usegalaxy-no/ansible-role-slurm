@@ -69,7 +69,7 @@
 
 - name: Configure slurmctld ExecStart
   lineinfile:
-    path: /usr/lib/systemd/system/slurmctld.service
+    path: /usr/lib/systemd/system/slurmd.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/sbin/slurmctld -D -s $SLURMCTLD_OPTIONS -Z'
     state: present
