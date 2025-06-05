@@ -62,6 +62,19 @@ Role Variables
 | `slurm_slurmctld_port`        | `6817`                                  | Port for Slurm controller daemon              |
 | `slurm_slurmd_debug`          | `3`                                     | Debug level for Slurmd                        |
 | `slurm_slurmd_port`           | `6818`                                  | Port for Slurmd daemon                        |
+| `slurm_slurmdbd_conf_template`| `templates/slurmdbd.conf.j2`            | Path to the Slurmdbd configuration template   |
+| `slurm_slurmdbd_conf_dest`    | `/etc/slurm/slurmdbd.conf`              | Destination for the Slurmdbd configuration file|
+| `slurm_slurmdbd_conf_owner`   | `slurm`                                 | Owner of the Slurmdbd configuration file      |
+| `slurm_slurmdbd_conf_group`   | `slurm`                                 | Group of the Slurmdbd configuration file      |
+| `slurm_slurmdbd_conf_mode`    | `0600`                                  | Permissions for the Slurmdbd configuration file|
+| `slurm_slurmdbd_log_file`     | `/var/log/slurm/slurmdbd.log`           | Log file for Slurmdbd                         |
+| `slurm_slurmdbd_pid_file`     | `/run/slurmdbd.pid`                     | PID file for Slurmdbd                         |
+| `slurm_slurmdbd_storage_type` | `mysql`                                 | Type of database for Slurmdbd storage         |
+| `slurm_slurmdbd_storage_host` | `localhost`                             | Hostname for Slurmdbd database                |
+| `slurm_slurmdbd_storage_port` | `3306`                                  | Port for Slurmdbd database                    |
+| `slurm_slurmdbd_storage_user` | `slurm`                                 | User for Slurmdbd database                    |
+| `slurm_slurmdbd_storage_pass` | `password`                              | Password for Slurmdbd database (**CHANGE THIS**)|
+| `slurm_slurmdbd_storage_db`   | `slurm_acct_db`                         | Database name for Slurmdbd storage            |
 
 Dependencies
 ------------

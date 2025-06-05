@@ -1,0 +1,30 @@
+---
+- name: Install slurmdbd package
+  dnf:
+    name: slurm-slurmdbd
+    state: present
+    update_cache: yes
+
+- name: Configure slurmdbd.conf
+  template:
+    src: "{{ slurm_slurmdbd_conf_template }}"
+    dest: "{{ slurm_slurmdbd_conf_dest }}"
+    owner: "{{ slurm_slurmdbd_conf_owner }}"
+    group: "{{ slurm_slurmdbd_conf_group }}"
+    mode: "{{ slurm_slurmdbd_conf_mode }}"
+
+- name: Create necessary directories for slurmdbd
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ slurm_user }}"
+    group: "{{ slurm_group }}"
+    mode: '0755'
+  loop:
+    - /var/log/slurm
+
+- name: Enable and start Slurmdbd service
+  systemd:
+    name: slurmdbd
+    state: started
+    enabled: true

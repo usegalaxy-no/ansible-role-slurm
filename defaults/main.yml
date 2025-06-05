@@ -50,3 +50,16 @@ slurm_select_type_parameters: CR_Core_Memory
 slurm_slurmctld_port: 6817
 slurm_slurmd_debug: 3
 slurm_slurmd_port: 6818
+slurm_slurmdbd_conf_template: "templates/slurmdbd.conf.j2"
+slurm_slurmdbd_conf_dest: "/etc/slurm/slurmdbd.conf"
+slurm_slurmdbd_conf_owner: slurm
+slurm_slurmdbd_conf_group: slurm
+slurm_slurmdbd_conf_mode: '0600'
+slurm_slurmdbd_log_file: "/var/log/slurm/slurmdbd.log"
+slurm_slurmdbd_pid_file: "/run/slurmdbd.pid"
+slurm_slurmdbd_storage_type: mysql
+slurm_slurmdbd_storage_host: localhost
+slurm_slurmdbd_storage_port: 3306
+slurm_slurmdbd_storage_user: slurm
+slurm_slurmdbd_storage_pass: password # **CHANGE THIS PASSWORD**
+slurm_slurmdbd_storage_db: slurm_acct_db
