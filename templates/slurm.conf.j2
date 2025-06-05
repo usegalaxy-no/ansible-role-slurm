@@ -9,7 +9,7 @@ SlurmctldLogFile={{ slurm_ctld_log_file }}
 SlurmdLogFile={{ slurm_d_log_file }}
 SlurmctldPidFile={{ slurm_ctld_pid_file }}
 SlurmdPidFile={{ slurm_d_pid_file }}
-ProctrackType=proctrack/pgid
+ProctrackType={{ slurm_proctrack_type }} {# Updated #}
 ReturnToService=2
 SchedulerType=sched/backfill
 SlurmctldTimeout={{ slurm_ctld_timeout }}
@@ -18,5 +18,15 @@ TaskPlugin=task/cgroup
 TreeWidth=65533
 SelectType=select/cons_tres
 MaxNodeCount={{ slurm_max_node_count }}
+SelectTypeParameters={{ slurm_select_type_parameters }}
+DefMemPerCPU={{ slurm_def_mem_per_cpu }}
+JobAcctGatherType={{ slurm_job_acct_gather_type }}
+SlurmctldPort={{ slurm_slurmctld_port }}
+SlurmdPort={{ slurm_slurmd_port }}
+SlurmdDebug={{ slurm_slurmd_debug }}
+CryptoType={{ slurm_crypto_type }}
+AccountingStorageHost={{ slurm_accounting_storage_host }}
+AccountingStorageType={{ slurm_accounting_storage_type }}
+
 
 PartitionName={{ slurm_partition_name }} Nodes=ALL Default=YES MaxTime={{ slurm_partition_max_time }} State=UP

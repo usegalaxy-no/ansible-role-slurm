@@ -40,3 +40,13 @@ slurm_cgroup_conf_group: slurm
 slurm_cgroup_conf_mode: '0644'
 slurm_max_node_count: 5
 slurm_playbook_type: exec  # Options: 'controller' or 'exec'
+slurm_accounting_storage_host: localhost
+slurm_accounting_storage_type: accounting_storage/slurmdbd
+slurm_crypto_type: crypto/munge
+slurm_def_mem_per_cpu: 1000
+slurm_job_acct_gather_type: jobacct_gather/cgroup
+slurm_proctrack_type: proctrack/cgroup
+slurm_select_type_parameters: CR_Core_Memory
+slurm_slurmctld_port: 6817
+slurm_slurmd_debug: 3
+slurm_slurmd_port: 6818

@@ -52,6 +52,16 @@ Role Variables
 | `slurm_cgroup_conf_mode`      | `0644`                                  | Permissions for the cgroup configuration file |
 | `slurm_max_node_count`        | `5`                                     | Maximum number of nodes in the Slurm cluster  |
 | `slurm_playbook_type`         | `exec`                                  | Determines which playbook to run (`controller` or `exec`) |
+| `slurm_accounting_storage_host` | `localhost`                           | Hostname for Slurm accounting storage         |
+| `slurm_accounting_storage_type` | `accounting_storage/slurmdbd`           | Type of Slurm accounting storage              |
+| `slurm_crypto_type`           | `crypto/munge`                          | Type of cryptography used by Slurm            |
+| `slurm_def_mem_per_cpu`       | `1000`                                  | Default memory per CPU (in MB)                |
+| `slurm_job_acct_gather_type`  | `jobacct_gather/cgroup`                 | Type of job accounting data gathering         |
+| `slurm_proctrack_type`        | `proctrack/cgroup`                      | Type of process tracking                      |
+| `slurm_select_type_parameters`| `CR_Core_Memory`                        | Parameters for SelectType                     |
+| `slurm_slurmctld_port`        | `6817`                                  | Port for Slurm controller daemon              |
+| `slurm_slurmd_debug`          | `3`                                     | Debug level for Slurmd                        |
+| `slurm_slurmd_port`           | `6818`                                  | Port for Slurmd daemon                        |
 
 Dependencies
 ------------
