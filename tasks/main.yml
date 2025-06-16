@@ -12,3 +12,7 @@
 - name: Include Slurm exec node tasks
   include_tasks: slurm-exec-install.yaml
   when: slurm_playbook_type == 'exec'
+
+- name: Create nfs server
+  include_tasks: nfs_server.yaml
+  when: nfs_server == 'true'

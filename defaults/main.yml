@@ -63,3 +63,8 @@ slurm_slurmdbd_storage_port: 3306
 slurm_slurmdbd_storage_user: slurm
 slurm_slurmdbd_storage_pass: password # **CHANGE THIS PASSWORD**
 slurm_slurmdbd_storage_db: slurm_acct_db
+
+# nfs-server
+nfs_server: true  # Set to true to enable NFS server installation
+nfs_export_path: "/opt/pulsar/files/staging/"
+nfs_allowed_clients: "*(rw,sync,no_subtree_check)" # Clients and options (e.g., "192.168.1.0/24(rw,sync)")

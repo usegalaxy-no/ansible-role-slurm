@@ -75,6 +75,9 @@ Role Variables
 | `slurm_slurmdbd_storage_user` | `slurm`                                 | User for Slurmdbd database                    |
 | `slurm_slurmdbd_storage_pass` | `password`                              | Password for Slurmdbd database (**CHANGE THIS**)|
 | `slurm_slurmdbd_storage_db`   | `slurm_acct_db`                         | Database name for Slurmdbd storage            |
+| `nfs_server`                  | `true`                                  | Set to true to enable NFS server installation |
+| `nfs_export_path`             | `/opt/pulsar/files/staging/`            | The directory to export via NFS               |
+| `nfs_allowed_clients`         | `*(rw,sync,no_subtree_check)`           | Clients and options for NFS export            |
 
 Dependencies
 ------------
