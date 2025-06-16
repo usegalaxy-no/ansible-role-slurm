@@ -78,6 +78,10 @@ Role Variables
 | `nfs_server`                  | `true`                                  | Set to true to enable NFS server installation |
 | `nfs_export_path`             | `/opt/pulsar/files/staging/`            | The directory to export via NFS               |
 | `nfs_allowed_clients`         | `*(rw,sync,no_subtree_check)`           | Clients and options for NFS export            |
+| `nfs_client`                  | `true`                                  | Set to true to enable NFS client mounting     |
+| `nfs_server_ip`               | `your_nfs_server_ip`                    | IP or hostname of the NFS server              |
+| `nfs_remote_path`             | `/export/slurm_data`                    | The path on the NFS server to mount           |
+| `nfs_mount_point`             | `/mnt/slurm_data`                       | The local directory to mount the NFS share    |
 
 Dependencies
 ------------

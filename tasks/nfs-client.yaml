@@ -1,0 +1,20 @@
+---
+- name: Install NFS client packages
+  dnf:
+    name: nfs-utils
+    state: present
+    update_cache: yes
+
+- name: Create NFS mount point directory
+  file:
+    path: "{{ nfs_mount_point }}"
+    state: directory
+    mode: '0755'
+
+- name: Mount NFS share via fstab
+  mount:
+    src: "{{ nfs_server_ip }}:{{ nfs_remote_path }}"
+    path: "{{ nfs_mount_point }}"
+    fstype: nfs
+    opts: defaults,_netdev # Add other options as needed, e.g., 'hard,intr'
+    state: mounted

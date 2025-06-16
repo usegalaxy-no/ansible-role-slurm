@@ -14,5 +14,9 @@
   when: slurm_playbook_type == 'exec'
 
 - name: Create nfs server
-  include_tasks: nfs_server.yaml
+  include_tasks: nfs-server.yaml
   when: nfs_server == 'true'
+
+- name: Include NFS client tasks
+  include_tasks: nfs-client.yaml
+  when: nfs_client == true
