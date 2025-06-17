@@ -52,8 +52,6 @@ Role Variables
 | `slurm_cgroup_conf_mode`      | `0644`                                  | Permissions for the cgroup configuration file |
 | `slurm_max_node_count`        | `5`                                     | Maximum number of nodes in the Slurm cluster  |
 | `slurm_playbook_type`         | `exec`                                  | Determines which playbook to run (`controller` or `exec`) |
-| `slurm_accounting_storage_host` | `localhost`                           | Hostname for Slurm accounting storage         |
-| `slurm_accounting_storage_type` | `accounting_storage/slurmdbd`           | Type of Slurm accounting storage              |
 | `slurm_crypto_type`           | `crypto/munge`                          | Type of cryptography used by Slurm            |
 | `slurm_def_mem_per_cpu`       | `1000`                                  | Default memory per CPU (in MB)                |
 | `slurm_job_acct_gather_type`  | `jobacct_gather/cgroup`                 | Type of job accounting data gathering         |
@@ -75,10 +73,10 @@ Role Variables
 | `slurm_slurmdbd_storage_user` | `slurm`                                 | User for Slurmdbd database                    |
 | `slurm_slurmdbd_storage_pass` | `password`                              | Password for Slurmdbd database (**CHANGE THIS**)|
 | `slurm_slurmdbd_storage_db`   | `slurm_acct_db`                         | Database name for Slurmdbd storage            |
-| `nfs_server`                  | `true`                                  | Set to true to enable NFS server installation |
+| `nfs_server`                  | `false`                                 | Set to true to enable NFS server installation |
 | `nfs_export_path`             | `/opt/pulsar/files/staging/`            | The directory to export via NFS               |
 | `nfs_allowed_clients`         | `*(rw,sync,no_subtree_check)`           | Clients and options for NFS export            |
-| `nfs_client`                  | `true`                                  | Set to true to enable NFS client mounting     |
+| `nfs_client`                  | `false`                                 | Set to true to enable NFS client mounting     |
 | `nfs_server_ip`               | `your_nfs_server_ip`                    | IP or hostname of the NFS server              |
 | `nfs_remote_path`             | `/export/slurm_data`                    | The path on the NFS server to mount           |
 | `nfs_mount_point`             | `/mnt/slurm_data`                       | The local directory to mount the NFS share    |

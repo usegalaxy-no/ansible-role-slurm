@@ -5,10 +5,6 @@
   include_tasks: slurm-controller-install.yaml
   when: slurm_playbook_type == 'controller'
 
-- name: Include Slurm DBD tasks
-  include_tasks: slurm-dbd-install.yaml
-  when: slurm_playbook_type == 'controller'
-
 - name: Include Slurm exec node tasks
   include_tasks: slurm-exec-install.yaml
   when: slurm_playbook_type == 'exec'
