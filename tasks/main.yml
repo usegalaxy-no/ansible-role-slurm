@@ -15,7 +15,7 @@
 
 - name: Create nfs server
   include_tasks: nfs-server.yaml
-  when: nfs_server == 'true'
+  when: nfs_server == true
 
 - name: Include NFS client tasks
   include_tasks: nfs-client.yaml
