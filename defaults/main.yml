@@ -65,11 +65,11 @@ slurm_slurmdbd_storage_pass: password # **CHANGE THIS PASSWORD**
 slurm_slurmdbd_storage_db: slurm_acct_db
 
 # nfs-server
-nfs_server: true  # Set to true to enable NFS server installation
+nfs_server: false  # Set to true to enable NFS server installation
 nfs_export_path: "/opt/pulsar/files/staging/"
 nfs_allowed_clients: "*(rw,sync,no_subtree_check)" # Clients and options (e.g., "192.168.1.0/24(rw,sync)")
 # nfs-client
-nfs_client: true # Set to true to enable NFS client mounting
+nfs_client: false # Set to true to enable NFS client mounting
 nfs_server_ip: "your_nfs_server_ip" # Replace with the IP or hostname of your NFS server
 nfs_remote_path: "/export/slurm_data" # The path on the NFS server to mount
 nfs_mount_point: "/mnt/slurm_data" # The local directory to mount the NFS share
