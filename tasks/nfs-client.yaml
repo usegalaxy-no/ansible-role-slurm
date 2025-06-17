@@ -12,7 +12,7 @@
     mode: '0755'
 
 - name: Mount NFS share via fstab
-  mount:
+  ansible.posix.mount:
     src: "{{ nfs_server_ip }}:{{ nfs_remote_path }}"
     path: "{{ nfs_mount_point }}"
     fstype: nfs
