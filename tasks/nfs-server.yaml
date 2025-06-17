@@ -24,5 +24,5 @@
 - name: Enable and start NFS server service
   systemd:
     name: nfs-server
-    state: started
+    state: restarted
     enabled: true
